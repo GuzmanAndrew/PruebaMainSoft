@@ -1,0 +1,45 @@
+package com.test.jax.daos;
+
+import java.util.List;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
+
+import com.test.jax.entities.Banco;
+
+@Stateless
+public class BancoDaoImpl {
+
+	EntityManager em;
+
+    public BancoDaoImpl() {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("testapache");
+        this.em = emf.createEntityManager();
+    }
+	
+	public List getAll() {
+        return em.createNamedQuery("Banco.findAll", Banco.class).getResultList();
+    }
+	
+	public Banco findById(Long id) {
+        return em.find(Banco.class, id);
+    }
+
+    public void update(Banco todo) {
+        em.merge(todo);
+    }
+
+    public void create(Banco todo) {
+        em.persist(todo);
+    }
+
+    public void delete(Banco todo) {
+        if (!em.contains(todo)) {
+            todo = em.merge(todo);
+        }
+
+        em.remove(todo);
+    }
+}

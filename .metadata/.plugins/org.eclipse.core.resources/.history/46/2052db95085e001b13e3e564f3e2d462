@@ -1,0 +1,5 @@
+package com.test.jax.resources;
+
+public class ApplicationConfig {
+
+}

@@ -1,0 +1,9 @@
+com\test\jax\entities\Banco.class
+com\test\jax\controllers\BancoCtrl.class
+com\test\jax\entities\OrdenPago.class
+com\test\jax\beans\JsonBean.class
+com\test\jax\resources\ApplicationConfig.class
+com\test\jax\daos\BancoDao.class
+com\test\jax\daos\IBancoDao.class
+com\test\jax\entities\Sucursal.class
+com\test\jax\TestJaxApplication.class
